@@ -1,0 +1,190 @@
+```{r}
+library(TSA)
+
+data(larain)
+
+dev.new(width = 4.875, height = 2.5,
+        pointsize = 8)
+
+plot(larain,
+     ylab = "Inches",
+     xlab = "Year",
+     type = "o")
+```
+
+```{r}
+dev.new(width=3,height=3,pointsize=8)
+plot(y=larain,x=zlag(larain),ylab='Inches',
+xlab='Previous Year Inches')
+
+```
+
+```{r}
+dev.new(width=4.875, height=2.5,pointsize=8)
+data(color)
+plot(color,ylab='Color Property',xlab='Batch',type='o')
+```
+
+```{r}
+
+
+# Generate 48 independent normal random values
+x <- rnorm(48, mean = 0, sd = 1)
+
+# Convert into a time series
+x_ts <- ts(x)
+
+# Plot the time series
+plot(x_ts,
+     type = "o",
+     main = "Random Normal Time Series",
+     xlab = "Time",
+     ylab = "Value")
+
+```
+
+```{r}
+# Generate 48 independent normal random values
+x <- rchisq(48, df=2)
+
+# Convert into a time series
+x_ts <- ts(x)
+
+# Plot the time series
+plot(x_ts,
+     type = "o",
+     main = "Chi Square Time Series",
+     xlab = "Time",
+     ylab = "Value")
+
+```
+
+# 3/ Plot and Test Normal
+
+```{r}
+# Generate 48 independent normal random values
+x <- rt(48, df=5)
+
+# Convert into a time series
+x_ts <- ts(x)
+
+# Plot the time series
+plot(x_ts,
+     type = "o",
+     main = "t-distribution Time Series",
+     xlab = "Time",
+     ylab = "Value")
+```
+# Plot and Test Normal
+
+```{r}
+
+# Generate 48 independent normal random values
+x <- rnorm(100, mean = 0, sd = 5)
+
+# Convert into a time series
+
+x_ts <-ts(x)
+
+# Plot the time series
+plot(x_ts,
+     type = "o",
+     main = "Random Normal Time Series",
+     xlab = "Time",
+     ylab = "Value")
+
+plot(x,
+     type = "o",
+     main = "Random Normal Time Series",
+     xlab = "Time",
+     ylab = "Value")
+
+
+mean_x = mean(x)
+std_x = sd(x)
+
+print(mean_x)
+print(std_x)
+```
+
+# 
+
+```{r}
+
+dev.new(width=3,height=3,pointsize=8)
+plot(y=x_ts,x=zlag(x_ts),ylab='Inches',
+xlab='Previous Year Inches')
+
+
+```
+
+# Plot and Test Chi Square
+
+```{r}
+# Generate 48 independent Chi Square random values
+x <- rchisq(48, df=2)
+
+# Convert into a time series
+x_ts <- ts(x)
+
+# Plot the time series
+plot(x_ts,
+     type = "o",
+     main = "Chi Square Time Series",
+     xlab = "Time",
+     ylab = "Value")
+
+
+
+dev.new(width=3,height=3,pointsize=8)
+plot(y=x_ts,x=zlag(x_ts),ylab='Inches',
+xlab='Previous Year Inches')
+
+mean_x = mean(x)
+std_x = sd(x)
+print(mean_x)
+print(std_x)
+
+
+```
+
+
+# Test and Plot t-distribution
+
+```{r}
+
+x <- rt(48, df=5)
+
+# Convert into a time series
+x_ts <- ts(x)
+
+# Plot the time series
+plot(x_ts,
+     type = "o",
+     main = "t-distribution Time Series",
+     xlab = "Time",
+     ylab = "Value")
+
+```
+```{r}
+dev.new(width=3,height=3,pointsize=8)
+plot(y=x_ts,x=zlag(x_ts),ylab='Inches',
+xlab='Previous Year Inches')
+
+mean_x = mean(x)
+std_x = sd(x)
+print(mean_x)
+print(std_x)
+
+```
+# 6 Plot data
+
+```{r}
+data(tempdub) 
+
+plot(tempdub,type="o")
+points(y=tempdub,x=time(tempdub),
+pch=as.vector(season(tempdub)))
+
+```
+
